@@ -110,15 +110,15 @@ def save_library():
         st.error(f"Error loading library: {e}")
         return False
 # add a book to library
-def add_book(title, author,publication_year, genre, read_status):
-   book = {
-    'title': title,
-    'author': author,
-    'publication_year': publication_year,
-    'genre': genre,
-    'read_status': read_status,
-    'added_date': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")      
-}
+def add_book(title, author, publication_year, genre, read_status):
+    book = {
+        'title': title,
+        'author': author,
+        'publication_year': publication_year,
+        'genre': genre,
+        'read_status': read_status,
+        'added_date': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")      
+    }
     st.session_state.library.append(book)
     save_library()
     st.session_state.book_added = True
@@ -237,7 +237,7 @@ def create_visualization(stats):
         # load library
 load_library()
 st.sidebar.markdown("(<h1 style='text-align:centre;'></h1>",unsafe_allow_html=True)
-lottie_book=load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_4j7v1g5h.json")
+lottie_book = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_4j7v1g5h.json")
 if lottie_book:
     st_lottie(lottie_book, height=200, key='book_animation')
 nav_options = st.sidebar.radio(
@@ -335,22 +335,22 @@ elif st.session_state.current_view=="library":
             st.markdown("<div class='error-message'>No results found.</div>", unsafe_allow_html=True)
 elif st.session_state.current_view=="stats":
     st.markdown("<h2 class='subheader'>Library Statistics</h2>", unsafe_allow_html=True)
-    if  not st.session_state.library:
-        st.markdown("<div class='error-message'>Library empty!Please add some books.</div>", unsafe_allow_html=True)
-    else:
+if  not st.session_state.library:
+    st.markdown("<div class='error-message'>Library empty!Please add some books.</div>", unsafe_allow_html=True)
+else:
     stats = calculate_library_stats()
-    col1, col2,col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Total Books", stats['total_books'])
     with col2:
         st.metric("Read Books", stats['read_books'])
     with col3:
-        st.metric("Percentage Read",f{stats['percentage_read']:.1f}%")
-create_visualization(stats)
+        st.metric("Percentage Read", f"{stats['percentage_read']:.1f}%")
+    create_visualization(stats)
     if stats['authors']:
-       st.markdown("<h3>Top Authors</h3>", unsafe_allow_html=True)
-       top_authors = dict(list(stats['authors'].items())[:5])
-       for author, count in top_authors.items():
-           st.markdown(f"**{author}**: {count} books{'s' if count>1 else''}")
+        st.markdown("<h3>Top Authors</h3>", unsafe_allow_html=True)
+        top_authors = dict(list(stats['authors'].items())[:5])
+        for author, count in top_authors.items():
+            st.markdown(f"**{author}**: {count} books{'s' if count>1 else''}")
 st.markdown("---")
 st.markdown ("Copyright © 2025 Rida Amir. Personal Library Manager.", unsafe_allow_html=True)
