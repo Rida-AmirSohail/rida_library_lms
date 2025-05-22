@@ -1,34 +1,18 @@
 [
   {
-    "title":"python crash course",
-    "author":"Eric Matthes",
-    "publication_year":2019,
-    "genre":"programming",
-    "read_status":false,
-    "added_data": "2025-03-11 11:36:40"
+    "title": "Book 1",
+    "author": "Author A",
+    "publication_year": 2023,
+    "genre": "Fiction",
+    "read_status": true,
+    "added_date": "2025-05-21 12:00:00"
   },
   {
-    "title":"learn python coding ",
-    "author":"Rida Amir",
-    "publication_year":2017,
-    "genre":"programming",
-    "read_status":true,
-    "added_data": "2025-03-11 11:45:50"
-  },
-    {
-    "title":"python learning ",
-    "author":"Amir Sohail",
-    "publication_year":2011,
-    "genre":"programming",
-    "read_status":false,
-    "added_data": "2025-03-11 11:41:50"
-  },
-    {
-    "title":"learn python coding with me ",
-    "author":"Esha Patel",
-    "publication_year":2014,
-    "genre":"programming",
-    "read_status":true,
-    "added_data": "2025-03-11 11:47:50"
+    "title": "Book 2",
+    "author": "Author B",
+    "publication_year": 2022,
+    "genre": "Mystery",
+    "read_status": false,
+    "added_date": "2025-05-21 13:00:00"
   }
 ]
