@@ -32,10 +32,10 @@
     "added_date": "2025-05-21 13:00:00"
   },
   {
-    "title": "Book 2",
-    "author": "Author B",
-    "publication_year": 2022,
-    "genre": "Mystery",
+    "title": "Art Work",
+    "author": "Sana",
+    "publication_year": 2019,
+    "genre": "Art",
     "read_status": false,
     "added_date": "2025-05-21 13:00:00"
     }
