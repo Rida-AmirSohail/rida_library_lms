@@ -199,41 +199,31 @@ def create_visualization(stats):
         geners_df = pd.DataFrame({
             'genre': list(stats['genres'].keys()),
             'count': list(stats['genres'].values()),
-        })
-        fig_genres=px.bar(
-            geners_df,
-            x='genre',
-            y='count',  
-            color='count',
-            color_continuous_scale=px.colors.sequential.Blues,
-        )
-        fig_decades.update_layout(
-            title_text='Books by publication decade',
-            xaxis_title='Decade',
-            yaxis_title='Number of Books',
-            height=400,
-        )
-        st.plotly_chart(fig_decades, use_container_width=True)
-    if stats['decades']:
-        decades_df = pd.DataFrame({
-            'decade': [f"{decade}" for decade in stats['decades'].keys()],
-            'count': list(stats['decades'].values()),
-        })
-        fig_decades = px.line(
-            decades_df,
-            x='decade',
-            y='count',
-            markers=True,
-            line_space=" spline"
-        )
-        fig_genres.update_layout(
-            title_text='Books by publication decade',
-            xaxis_title='Decade',
-            yaxis_title='Number of Books',
-            height=400,
-        )
-        st.plotly_chart(fig_decades, use_container_width=True)
-        # load library
+       # Bar chart for genres
+if stats['genres']:
+    genres_df = pd.DataFrame({
+        'genre': list(stats['genres'].keys()),
+        'count': list(stats['genres'].values())
+    })
+    fig_genres = px.bar(
+        genres_df,
+        x='genre',
+        y='count',
+        color='count',
+        color_continuous_scale=px.colors.sequential.Blues
+    )
+    fig_genres.update_layout(
+        title_text='Books by Genre',
+        xaxis_title='Genre',
+        yaxis_title='Number of Books',
+        height=400,
+    )
+    st.plotly_chart(fig_genres, use_container_width=True)
+
+# Line chart for decades
+if stats['decades']:
+    decades_df = pd.DataFrame({
+        'decade': [f"{decade}" for decade in stats['decades'].keys()],
 load_library()
 st.sidebar.markdown("(<h1 style='text-align:centre;'></h1>",unsafe_allow_html=True)
 lottie_book = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_4j7v1g5h.json")
@@ -345,7 +335,7 @@ else:
         st.metric("Read Books", stats['read_books'])
     with col3:
         st.metric("Percentage Read", f"{stats['percentage_read']:.1f}%")
-    create_visualization(stats)
+    create_visualization()
     if stats['authors']:
         st.markdown("<h3>Top Authors</h3>", unsafe_allow_html=True)
         top_authors = dict(list(stats['authors'].items())[:5])
