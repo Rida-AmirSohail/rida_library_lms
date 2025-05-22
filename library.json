@@ -1,12 +1,36 @@
 [
   {
-    "title": "Book 1",
-    "author": "Author A",
+    "title": "Mathematics by Ayyan",
+    "author": "Ayyan",
     "publication_year": 2023,
-    "genre": "Fiction",
+    "genre": "Math",
     "read_status": true,
     "added_date": "2025-05-21 12:00:00"
   },
+  {
+    "title": "Learn Science",
+    "author": "Amir",
+    "publication_year": 2022,
+    "genre": "Sience",
+    "read_status": false,
+    "added_date": "2025-05-21 13:00:00"
+  }
+  {
+    "title": "History",
+    "author": "Rida",
+    "publication_year": 2020,
+    "genre": "history",
+    "read_status": false,
+    "added_date": "2025-05-21 13:00:00"
+  }
+  {
+    "title": "Urdu",
+    "author": "Zayyan",
+    "publication_year": 2021,
+    "genre": "English",
+    "read_status": false,
+    "added_date": "2025-05-21 13:00:00"
+  }
   {
     "title": "Book 2",
     "author": "Author B",
