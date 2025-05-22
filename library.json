@@ -14,7 +14,7 @@
     "genre": "Sience",
     "read_status": false,
     "added_date": "2025-05-21 13:00:00"
-  }
+  },
   {
     "title": "History",
     "author": "Rida",
@@ -22,7 +22,7 @@
     "genre": "history",
     "read_status": false,
     "added_date": "2025-05-21 13:00:00"
-  }
+  },
   {
     "title": "Urdu",
     "author": "Zayyan",
@@ -30,7 +30,7 @@
     "genre": "English",
     "read_status": false,
     "added_date": "2025-05-21 13:00:00"
-  }
+  },
   {
     "title": "Book 2",
     "author": "Author B",
@@ -38,5 +38,5 @@
     "genre": "Mystery",
     "read_status": false,
     "added_date": "2025-05-21 13:00:00"
-  }
+    }
 ]
