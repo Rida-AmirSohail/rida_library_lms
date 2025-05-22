@@ -81,8 +81,8 @@ def load_lottieurl(url):
         return r.json()
     except:
         return None
-    if 'library'not in st.session_state:
-        st.session_state['library'] = []            
+if 'library' not in st.session_state:
+    st.session_state['library'] = []
     if 'search_ressults' not in st.session_state:
         st.session_state.search_ressults = []
     if 'book_added' not in st.session_state:
@@ -117,7 +117,7 @@ def add_book(title, author, publication_year, genre, read_status):
         'publication_year': publication_year,
         'genre': genre,
         'read_status': read_status,
-        'added_date': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")      
+        'added_date': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")     
     }
     st.session_state.library.append(book)
     save_library()
@@ -151,7 +151,6 @@ def calculate_library_stats():
     genres = {}
     authors = {}
     decades = {}
-
     for book in st.session_state.library:
         if book['genre'] in genres:
             pass
@@ -204,7 +203,7 @@ def create_visualization(stats):
         fig_genres=px.bar(
             geners_df,
             x='genre',
-            y='count',
+            y='count',  
             color='count',
             color_continuous_scale=px.colors.sequential.Blues,
         )
@@ -227,7 +226,7 @@ def create_visualization(stats):
             markers=True,
             line_space=" spline"
         )
-        fig_decades.update_layout(
+        fig_genres.update_layout(
             title_text='Books by publication decade',
             xaxis_title='Decade',
             yaxis_title='Number of Books',
@@ -270,7 +269,7 @@ if st.session_state.current_view=="add":
         if submit_button and title and author:
             add_book(title, author, publication_year, genre, read_status)
         if st.session_state.book_added:
-            st.markdown("<div class='success-message'>Book added successfully!</div>", unsafe_allow_html=True)
+            st.markdown("<div class='success-messageS'>Book added successfully!</div>", unsafe_allow_html=True)
             st.balloons()
             st.session_state.book_added = False
 elif st.session_state.current_view=="library":
@@ -331,7 +330,7 @@ elif st.session_state.current_view=="library":
                                 </span></p>
                                 </div>
 """, unsafe_allow_html=True)
-        elif search_term:
+        elif 'search_term' in locals() and search_term:
             st.markdown("<div class='error-message'>No results found.</div>", unsafe_allow_html=True)
 elif st.session_state.current_view=="stats":
     st.markdown("<h2 class='subheader'>Library Statistics</h2>", unsafe_allow_html=True)
@@ -353,4 +352,4 @@ else:
         for author, count in top_authors.items():
             st.markdown(f"**{author}**: {count} books{'s' if count>1 else''}")
 st.markdown("---")
-st.markdown ("Copyright © 2025 Rida Amir. Personal Library Manager.", unsafe_allow_html=True)
+st.markdown ("Copyright © 2025 Rida Amir. PersonalFD Library Manager.", unsafe_allow_html=True)
