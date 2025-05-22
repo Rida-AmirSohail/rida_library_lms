@@ -216,7 +216,7 @@ def create_visualization(stats):
         st.plotly_chart(fig_decades, use_container_width=True)
     if stats['decades']:
         decades_df = pd.DataFrame({
-            'decade': [f"{decade}" for decade in stats['decades'].keys()]
+            'decade': [f"{decade}" for decade in stats['decades'].keys()],
             'count': list(stats['decades'].values()),
         })
         fig_decades = px.line(
