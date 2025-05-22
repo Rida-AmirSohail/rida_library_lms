@@ -1,2 +1,5 @@
-streamlit
-cryptography
+streamlit==1.45.1
+pandas
+plotly
+streamlit-lottie
+requests
